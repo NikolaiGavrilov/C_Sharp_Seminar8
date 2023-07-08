@@ -29,7 +29,7 @@ int[,] Create2dArray(int [] minAndMaxVals)
         Console.WriteLine("Impossible value. Try again!");
         arrayRows = Convert.ToInt32(Console.ReadLine());
     }
-    Console.WriteLine("Set the count of rows in your array");
+    Console.WriteLine("Set the count of columns in your array");
     int arrayColumns = Convert.ToInt32(Console.ReadLine());
     while (arrayColumns <= 0)
     {
