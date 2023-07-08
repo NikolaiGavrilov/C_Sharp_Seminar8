@@ -19,7 +19,7 @@ int[,] Create2dArray()
         Console.WriteLine("Impossible value. Try again!");
         arrayRows = Convert.ToInt32(Console.ReadLine());
     }
-    Console.WriteLine("Set the count of rows in your array");
+    Console.WriteLine("Set the count of columns in your array");
     int arrayColumns = Convert.ToInt32(Console.ReadLine());
     while (arrayColumns <= 0)
     {
@@ -51,17 +51,17 @@ void Print2dArray(int[,] arrayToPrint)
 
 int[,] Sorted2dArray(int[,] arrayToSort)
 {
-    int min = 0;
+    int max = 0;
     for (int i = 0; i < arrayToSort.GetLength(0); i++)
         for (int j = 0; j < arrayToSort.GetLength(1); j++)
         {
             for (int newColumn = 0; newColumn < arrayToSort.GetLength(1)-1; newColumn++)
             {
-                if (arrayToSort[i, newColumn] > arrayToSort[i, newColumn+1])
+                if (arrayToSort[i, newColumn] < arrayToSort[i, newColumn+1])
                 {
-                    min = arrayToSort[i, newColumn+1];
+                    max = arrayToSort[i, newColumn+1];
                     arrayToSort[i, newColumn+1] = arrayToSort[i, newColumn];
-                    arrayToSort[i, newColumn] = min;
+                    arrayToSort[i, newColumn] = max;
                 }
             }
             
@@ -73,5 +73,5 @@ int[,] userArray = Create2dArray();
 Console.WriteLine("Initial array:");
 Print2dArray(userArray);
 int[,] sortedArray = Sorted2dArray(userArray);
-Console.WriteLine("Array with sorted (min->max) elements in each row:");
+Console.WriteLine("Array with sorted (max->min) elements in each row:");
 Print2dArray(sortedArray);
